@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adresses",
+  "info": {
+    "singularName": "adresse",
+    "pluralName": "adresses",
+    "displayName": "Adresse"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Strasse": {
+      "type": "string"
+    },
+    "Hausnr": {
+      "type": "string"
+    },
+    "Ort": {
+      "type": "string"
+    },
+    "PLZ": {
+      "type": "integer",
+      "max": 99999,
+      "min": 0
+    },
+    "Land": {
+      "type": "enumeration",
+      "enum": [
+        "DE"
+      ],
+      "required": false,
+      "default": "DE"
+    }
+  }
+}

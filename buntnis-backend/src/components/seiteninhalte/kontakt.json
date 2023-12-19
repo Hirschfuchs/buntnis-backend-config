@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_seiteninhalte_kontakts",
+  "info": {
+    "displayName": "Kontakt",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "adresse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::adresse.adresse"
+    }
+  }
+}

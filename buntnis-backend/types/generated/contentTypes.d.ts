@@ -362,6 +362,98 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAdresseAdresse extends Schema.CollectionType {
+  collectionName: 'adresses';
+  info: {
+    singularName: 'adresse';
+    pluralName: 'adresses';
+    displayName: 'Adresse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Strasse: Attribute.String;
+    Hausnr: Attribute.String;
+    Ort: Attribute.String;
+    PLZ: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+        max: 99999;
+      }>;
+    Land: Attribute.Enumeration<['DE']> & Attribute.DefaultTo<'DE'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::adresse.adresse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::adresse.adresse',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStaticContentCardStaticContentCard
+  extends Schema.CollectionType {
+  collectionName: 'static_content_cards';
+  info: {
+    singularName: 'static-content-card';
+    pluralName: 'static-content-cards';
+    displayName: 'static content card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Titel: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Text: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::static-content-card.static-content-card',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::static-content-card.static-content-card',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::static-content-card.static-content-card',
+      'oneToMany',
+      'api::static-content-card.static-content-card'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -687,6 +779,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::adresse.adresse': ApiAdresseAdresse;
+      'api::static-content-card.static-content-card': ApiStaticContentCardStaticContentCard;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

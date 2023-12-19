@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_seiteninhalte_startseites",
+  "info": {
+    "displayName": "Startseite",
+    "icon": "house"
+  },
+  "options": {},
+  "attributes": {
+    "content_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::static-content-card.static-content-card"
+    }
+  }
+}

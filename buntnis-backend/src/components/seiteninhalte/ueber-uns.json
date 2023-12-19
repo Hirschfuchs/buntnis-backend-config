@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_seiteninhalte_ueber_uns",
+  "info": {
+    "displayName": "UeberUns",
+    "icon": "information"
+  },
+  "options": {},
+  "attributes": {
+    "content_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::static-content-card.static-content-card"
+    }
+  }
+}

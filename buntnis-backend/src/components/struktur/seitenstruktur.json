@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_struktur_seitenstrukturs",
+  "info": {
+    "displayName": "Seitenstruktur",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Startseite": {
+      "type": "boolean",
+      "default": true
+    },
+    "UeberUns": {
+      "type": "boolean",
+      "default": true
+    },
+    "BuntesIlmenau": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "Kontakt": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

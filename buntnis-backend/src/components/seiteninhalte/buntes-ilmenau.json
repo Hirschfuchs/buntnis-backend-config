@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_seiteninhalte_buntes_ilmenaus",
+  "info": {
+    "displayName": "BuntesIlmenau",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "content_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::static-content-card.static-content-card"
+    }
+  }
+}
